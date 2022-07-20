@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Game index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Caractere</th>
+                <th>Pv</th>
+                <th>Chance</th>
+                <th>Gloire</th>
+                <th>Richesse</th>
+                <th>Damage</th>
+                <th>Armor</th>
+                <th>Critique</th>
+                <th>Pvmax</th>
+                <th>HabileteBase</th>
+                <th>HabileteCarac</th>
+                <th>HabileteItem</th>
+                <th>HabileteGain</th>
+                <th>HabileteTotal</th>
+                <th>AdresseBase</th>
+                <th>AdresseCarac</th>
+                <th>AdresseItem</th>
+                <th>AdresseGain</th>
+                <th>AdresseTotal</th>
+                <th>EnduranceBase</th>
+                <th>EnduranceCarac</th>
+                <th>EnduranceItem</th>
+                <th>EnduranceGain</th>
+                <th>EnduranceTotal</th>
+                <th>ChanceBase</th>
+                <th>ChanceCarac</th>
+                <th>ChanceItem</th>
+                <th>ChanceGain</th>
+                <th>ChanceTotal</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for game in games %}
+            <tr>
+                <td>{{ game.id }}</td>
+                <td>{{ game.name }}</td>
+                <td>{{ game.caractere }}</td>
+                <td>{{ game.pv }}</td>
+                <td>{{ game.chance }}</td>
+                <td>{{ game.gloire }}</td>
+                <td>{{ game.richesse }}</td>
+                <td>{{ game.damage }}</td>
+                <td>{{ game.armor }}</td>
+                <td>{{ game.critique }}</td>
+                <td>{{ game.pvmax }}</td>
+                <td>{{ game.habileteBase }}</td>
+                <td>{{ game.habileteCarac }}</td>
+                <td>{{ game.habileteItem }}</td>
+                <td>{{ game.habileteGain }}</td>
+                <td>{{ game.habileteTotal }}</td>
+                <td>{{ game.adresseBase }}</td>
+                <td>{{ game.adresseCarac }}</td>
+                <td>{{ game.adresseItem }}</td>
+                <td>{{ game.adresseGain }}</td>
+                <td>{{ game.adresseTotal }}</td>
+                <td>{{ game.enduranceBase }}</td>
+                <td>{{ game.enduranceCarac }}</td>
+                <td>{{ game.enduranceItem }}</td>
+                <td>{{ game.enduranceGain }}</td>
+                <td>{{ game.enduranceTotal }}</td>
+                <td>{{ game.chanceBase }}</td>
+                <td>{{ game.chanceCarac }}</td>
+                <td>{{ game.chanceItem }}</td>
+                <td>{{ game.chanceGain }}</td>
+                <td>{{ game.chanceTotal }}</td>
+                <td>
+                    <a href="{{ path('app_game_show', {'id': game.id}) }}">show</a>
+                    <a href="{{ path('app_game_edit', {'id': game.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="32">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_game_new') }}">Create new</a>
+{% endblock %}

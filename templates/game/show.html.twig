@@ -1,0 +1,142 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Game{% endblock %}
+
+{% block body %}
+    <h1>Game</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ game.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ game.name }}</td>
+            </tr>
+            <tr>
+                <th>Caractere</th>
+                <td>{{ game.caractere }}</td>
+            </tr>
+            <tr>
+                <th>Pv</th>
+                <td>{{ game.pv }}</td>
+            </tr>
+            <tr>
+                <th>Chance</th>
+                <td>{{ game.chance }}</td>
+            </tr>
+            <tr>
+                <th>Gloire</th>
+                <td>{{ game.gloire }}</td>
+            </tr>
+            <tr>
+                <th>Richesse</th>
+                <td>{{ game.richesse }}</td>
+            </tr>
+            <tr>
+                <th>Damage</th>
+                <td>{{ game.damage }}</td>
+            </tr>
+            <tr>
+                <th>Armor</th>
+                <td>{{ game.armor }}</td>
+            </tr>
+            <tr>
+                <th>Critique</th>
+                <td>{{ game.critique }}</td>
+            </tr>
+            <tr>
+                <th>Pvmax</th>
+                <td>{{ game.pvmax }}</td>
+            </tr>
+            <tr>
+                <th>HabileteBase</th>
+                <td>{{ game.habileteBase }}</td>
+            </tr>
+            <tr>
+                <th>HabileteCarac</th>
+                <td>{{ game.habileteCarac }}</td>
+            </tr>
+            <tr>
+                <th>HabileteItem</th>
+                <td>{{ game.habileteItem }}</td>
+            </tr>
+            <tr>
+                <th>HabileteGain</th>
+                <td>{{ game.habileteGain }}</td>
+            </tr>
+            <tr>
+                <th>HabileteTotal</th>
+                <td>{{ game.habileteTotal }}</td>
+            </tr>
+            <tr>
+                <th>AdresseBase</th>
+                <td>{{ game.adresseBase }}</td>
+            </tr>
+            <tr>
+                <th>AdresseCarac</th>
+                <td>{{ game.adresseCarac }}</td>
+            </tr>
+            <tr>
+                <th>AdresseItem</th>
+                <td>{{ game.adresseItem }}</td>
+            </tr>
+            <tr>
+                <th>AdresseGain</th>
+                <td>{{ game.adresseGain }}</td>
+            </tr>
+            <tr>
+                <th>AdresseTotal</th>
+                <td>{{ game.adresseTotal }}</td>
+            </tr>
+            <tr>
+                <th>EnduranceBase</th>
+                <td>{{ game.enduranceBase }}</td>
+            </tr>
+            <tr>
+                <th>EnduranceCarac</th>
+                <td>{{ game.enduranceCarac }}</td>
+            </tr>
+            <tr>
+                <th>EnduranceItem</th>
+                <td>{{ game.enduranceItem }}</td>
+            </tr>
+            <tr>
+                <th>EnduranceGain</th>
+                <td>{{ game.enduranceGain }}</td>
+            </tr>
+            <tr>
+                <th>EnduranceTotal</th>
+                <td>{{ game.enduranceTotal }}</td>
+            </tr>
+            <tr>
+                <th>ChanceBase</th>
+                <td>{{ game.chanceBase }}</td>
+            </tr>
+            <tr>
+                <th>ChanceCarac</th>
+                <td>{{ game.chanceCarac }}</td>
+            </tr>
+            <tr>
+                <th>ChanceItem</th>
+                <td>{{ game.chanceItem }}</td>
+            </tr>
+            <tr>
+                <th>ChanceGain</th>
+                <td>{{ game.chanceGain }}</td>
+            </tr>
+            <tr>
+                <th>ChanceTotal</th>
+                <td>{{ game.chanceTotal }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_game_index') }}">back to list</a>
+
+    <a href="{{ path('app_game_edit', {'id': game.id}) }}">edit</a>
+
+    {{ include('game/_delete_form.html.twig') }}
+{% endblock %}

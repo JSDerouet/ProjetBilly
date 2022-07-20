@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Game
+{% endblock %}
+
+{% block body %}
+	<h1 class="d-flex justify-content-center">Fiche Personnage</h1>
+	<h2>Livre 1</h2>
+	<form action="" method="post">
+		<h2 class="d-flex justify-content-start col-lg-10 mt-5">
+			<label class="d-flex justify-content-start me-4" for="name">Nom du billy :</label>
+			<input class="d-flex justify-content-start p-2 border-dark" type="text" id="name" name="_name" value="{{ game.name }}"/>
+		</h2>
+		<div class="d-flex flex-column align-items-center justify-content-center mb-5">
+			<h2 class="mb-4">Caractère du billy :</h2>
+			<select class="form-select w-25" aria-label="Default select example">
+				<option selected>Choisis ton type de Billy</option>
+				<option value="Guerrier">Guerrier</option>
+				<option value="Paysan">Paysan</option>
+				<option value="Débrouillard">Débrouillard</option>
+				<option value="Prudent">Prudent</option>
+			</select>
+		</div>
+		<div class="d-flex justify-content-around mt-3">
+			<div class="d-flex flex-column">
+				<h3>Habileté</h3>
+				<div>Base</div>
+                <div>Caractère</div>
+                <div>Matériel</div>
+                <div>Gain</div>
+                <div>Total</div>
+			</div>
+            <div class="d-flex flex-column">
+				<h3>Adresse</h3>
+				<div>Base</div>
+                <div>Caractère</div>
+                <div>Matériel</div>
+                <div>Gain</div>
+                <div>Total</div>
+			</div>
+            <div class="d-flex flex-column">
+				<h3>Stats secondaire</h3>
+				<div>Dégats :</div>
+                <div>Armure :</div>
+                <div>Critique :</div>
+                <div>PV max :</div>
+			</div>
+		</div>
+        <div class="d-flex justify-content-around mt-3">
+			<div class="d-flex flex-column">
+				<h3>Endurance</h3>
+				<div>Base</div>
+                <div>Caractère</div>
+                <div>Matériel</div>
+                <div>Gain</div>
+                <div>Total</div>
+			</div>
+            <div class="d-flex flex-column">
+				<h3>Chance</h3>
+				<div>Base</div>
+                <div>Caractère</div>
+                <div>Matériel</div>
+                <div>Gain</div>
+                <div>Total</div>
+			</div>
+            <div class="d-flex flex-column">
+				<h3>Matériel de base</h3>
+				<div>Dégats :</div>
+                <div>Armure :</div>
+                <div>Critique :</div>
+                <div>PV max :</div>
+			</div>
+		</div>
+	</form>
+	<a href="{{ path('app_game_index') }}">back to list</a>
+{% endblock %}

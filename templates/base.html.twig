@@ -1,19 +1,62 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}L'antre de billy
+			{% endblock %}
+		</title>
+		<link
+		rel="icon" type="image/png" href="{{ asset('build/images/barbare.png') }}"/>
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</head>
+	<body>
+		{% include "_navbar.html.twig" %}
+		{% block body %}
+			<h1 class="d-flex justify-content-center">L'ANTRE DE BILLY</h1>
+			<div class="row p-5 d-flex justify-content-center align-items-center">
+				<div class="col-md-4">
+					<h3>À propos</h3>
+					<p>Bonjour et bienvenue dans l’antre de Billy.
+						Ce site a pour but de récapituler les différentes fiches personnages de la série “Vous êtes Billy”.
+						Il ne remplace pas les livres de cette série mais donne une aide de gestion de personnage.
+						Il subira des mises à jour régulière, notamment lors de la sortie d'un nouveau livre.</p>
+				</div>
+				<div class="d-flex justify-content-center col-md-5"><img class="w-50" src={{ asset('build/images/barbare.jpeg') }} alt="logo"></div>
+			</div>
+			<section class="main-container">
+				<ul class="nav nav-pills mb-3 ps-5" id="pills-tab" role="tablist">
+					{% for livre in livres %}
+						<li class="nav-item" role="presentation">
+							<button class="nav-link {{ loop.first ? 'active' }}" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-{{livre.id}}" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Livre
+								{{livre.numero}}</button>
+						</li>
+					{% endfor %}
+				</ul>
+				<div class="tab-content" id="pills-tabContent">
+					{% for livre in livres %}
+						<div class="tab-pane fade {{ loop.first ? 'show active' }} px-5" id="pills-{{livre.id}}" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+							<div class="row d-flex justify-content-center align-items-center my-5">
+								<img class="col-md-2 me-4" src="{{ asset('build/images/{{livre.image}}') }}" alt="Image {{livre.title}}">
+								<div class="col-md-6 align-items-center">
+									<h3 class="d-flex justify-content-center">{{livre.title}}</h3>
+									<p class"p-5">{{livre.description}}</p>
+								</div>
+							</div>
+							<div class="d-flex justify-content-center">
+								<a href="/" class="btn btn-primary rouded">Commencer</a>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</section>
+		{% endblock %}
+	</body>
 </html>

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CaractereRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CaractereRepository::class)]
@@ -17,16 +19,16 @@ class Caractere
     private $name;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $habilete;
+    private $habilete = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $adresse;
+    private $adresse = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $endurance;
+    private $endurance = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $chance;
+    private $chance = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private $damage;
@@ -39,6 +41,14 @@ class Caractere
 
     #[ORM\Column(type: 'text')]
     private $description;
+
+    #[ORM\OneToMany(mappedBy: 'caracteres', targetEntity: Game::class)]
+    private $games;
+
+    public function __construct()
+    {
+        $this->games = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -149,6 +159,36 @@ class Caractere
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Game>
+     */
+    public function getGames(): Collection
+    {
+        return $this->games;
+    }
+
+    public function addGame(Game $game): self
+    {
+        if (!$this->games->contains($game)) {
+            $this->games[] = $game;
+            $game->setCaracteres($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGame(Game $game): self
+    {
+        if ($this->games->removeElement($game)) {
+            // set the owning side to null (unless already changed)
+            if ($game->getCaracteres() === $this) {
+                $game->setCaracteres(null);
+            }
+        }
 
         return $this;
     }

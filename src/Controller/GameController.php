@@ -35,14 +35,10 @@ class GameController extends AbstractController
 
             return $this->redirectToRoute('app_game_index', [], Response::HTTP_SEE_OTHER);
         }
-
-        $caracteres = $caractereRepository -> findall();
-        $items = $itemRepository->findall();
+        
         return $this->renderForm('game/new.html.twig', [
             'game' => $game,
             'form' => $form,
-            'caracteres' => $caracteres,
-            'items' => $items
         ]);
     }
 

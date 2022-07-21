@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\GameRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: GameRepository::class)]
@@ -15,9 +17,6 @@ class Game
 
     #[ORM\Column(type: 'string', length: 255)]
     private $name='Billy';
-
-    #[ORM\Column(type: 'string', length: 255)]
-    private $caractere;
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private $pv = 0;
@@ -103,6 +102,15 @@ class Game
     #[ORM\Column(type: 'integer', nullable: true)]
     private $chanceTotal;
 
+    #[ORM\ManyToOne(targetEntity: Caractere::class, inversedBy: 'games')]
+    private $caracteres;
+
+    #[ORM\ManyToOne(targetEntity: Note::class, inversedBy: 'games')]
+    private $notes;
+
+    #[ORM\ManyToOne(targetEntity: Item::class, inversedBy: 'games')]
+    private $items;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -116,18 +124,6 @@ class Game
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getCaractere(): ?string
-    {
-        return $this->caractere;
-    }
-
-    public function setCaractere(string $caractere): self
-    {
-        $this->caractere = $caractere;
 
         return $this;
     }
@@ -464,6 +460,42 @@ class Game
     public function setChanceTotal(?int $chanceTotal): self
     {
         $this->chanceTotal = $chanceTotal;
+
+        return $this;
+    }
+
+    public function getCaracteres(): ?Caractere
+    {
+        return $this->caracteres;
+    }
+
+    public function setCaracteres(?Caractere $caracteres): self
+    {
+        $this->caracteres = $caracteres;
+
+        return $this;
+    }
+
+    public function getNotes(): ?Note
+    {
+        return $this->notes;
+    }
+
+    public function setNotes(?Note $notes): self
+    {
+        $this->notes = $notes;
+
+        return $this;
+    }
+
+    public function getItems(): ?Item
+    {
+        return $this->items;
+    }
+
+    public function setItems(?Item $items): self
+    {
+        $this->items = $items;
 
         return $this;
     }

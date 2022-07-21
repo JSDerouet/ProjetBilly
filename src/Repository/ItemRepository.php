@@ -39,6 +39,20 @@ class ItemRepository extends ServiceEntityRepository
         }
     }
 
+    public function findAllItem(bool $is_start): array
+    {
+        if (!$is_start) {
+            $query = $this->createQueryBuilder('u')
+                ->orderBy('u.name', 'ASC');
+            return $query->getQuery()->getResult();
+        } else {
+            $query = $this->createQueryBuilder('u')
+                ->where('u.is_start LIKE :val')
+                ->setParameter('val', $is_start)
+                ->orderBy('u.name', 'ASC');
+            return $query->getQuery()->getResult();
+        }
+    }
 //    /**
 //     * @return Item[] Returns an array of Item objects
 //     */

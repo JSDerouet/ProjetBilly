@@ -1,0 +1,9 @@
+{% extends "email.html.twig" %}
+
+{% block body %}
+<h1>Bonjour Vragrujo.</h1>
+<h3>{{ contact.name }} vous a contacté avec le message suivant :</h3>
+<p>{{ contact.message|nl2br }}</p>
+<h3>Son email est le suivant :</h3>
+<p>{{ contact.email }}</p>
+{% endblock %}

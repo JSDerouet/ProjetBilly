@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Game;
 use App\Form\GameType;
+use App\Repository\CaractereRepository;
 use App\Repository\GameRepository;
+use App\Repository\ItemRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,7 +24,7 @@ class GameController extends AbstractController
     }
 
     #[Route('/', name: 'app_game_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, GameRepository $gameRepository): Response
+    public function new(Request $request, GameRepository $gameRepository, CaractereRepository $caractereRepository, ItemRepository $itemRepository): Response
     {
         $game = new Game();
         $form = $this->createForm(GameType::class, $game);
@@ -34,9 +36,13 @@ class GameController extends AbstractController
             return $this->redirectToRoute('app_game_index', [], Response::HTTP_SEE_OTHER);
         }
 
+        $caracteres = $caractereRepository -> findall();
+        $items = $itemRepository->findall();
         return $this->renderForm('game/new.html.twig', [
             'game' => $game,
             'form' => $form,
+            'caracteres' => $caracteres,
+            'items' => $items
         ]);
     }
 

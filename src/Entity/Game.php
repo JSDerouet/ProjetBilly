@@ -20,85 +20,85 @@ class Game
     private $caractere;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $pv;
+    private $pv = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $chance;
+    private $chance = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $gloire;
+    private $gloire = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $richesse;
+    private $richesse = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $damage;
+    private $damage = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $armor;
+    private $armor = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $critique;
+    private $critique = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $pvmax;
+    private $pvmax = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private $habileteBase = 2;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $habileteCarac;
+    private $habileteCarac = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $habileteItem;
+    private $habileteItem = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $habileteGain;
+    private $habileteGain = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private $habileteTotal;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $adresseBase;
+    private $adresseBase = 1;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $adresseCarac;
+    private $adresseCarac = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $adresseItem;
+    private $adresseItem = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $adresseGain;
+    private $adresseGain = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private $adresseTotal;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $enduranceBase;
+    private $enduranceBase = 2;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $enduranceCarac;
+    private $enduranceCarac = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $enduranceItem;
+    private $enduranceItem = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $enduranceGain;
+    private $enduranceGain = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private $enduranceTotal;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $chanceBase;
+    private $chanceBase = 3;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $chanceCarac;
+    private $chanceCarac = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $chanceItem;
+    private $chanceItem = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $chanceGain;
+    private $chanceGain = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private $chanceTotal;

@@ -1,8 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Game
+{% block title %}Nouvelle fiche perso
 {% endblock %}
 
+{% block javascripts %}
+	<script type="text/javascript">
+		var clicks = 0;
+function + () {
+clicks += 1;
+document.getElementById("count").innerHTML = clicks;
+};
+	</script>
+	<script type="text/javascript">
+		var clicks = 0;
+function -() {
+clicks -= 1;
+document.getElementById("count").innerHTML = clicks;
+};
+	</script>
+{% endblock %}
 {% block body %}
 	<h1 class="d-flex justify-content-center">Fiche Personnage</h1>
 	<h2>Livre 1</h2>
@@ -15,60 +31,139 @@
 			<h2 class="mb-4">Caractère du billy :</h2>
 			<select class="form-select w-25" aria-label="Default select example">
 				<option selected>Choisis ton type de Billy</option>
-				<option value="Guerrier">Guerrier</option>
-				<option value="Paysan">Paysan</option>
-				<option value="Débrouillard">Débrouillard</option>
-				<option value="Prudent">Prudent</option>
+				{% for caractere in caracteres %}
+					<option value={{ caractere.name }}>{{ caractere.name }}</option>
+				{% endfor %}
 			</select>
 		</div>
 		<div class="d-flex justify-content-around mt-3">
 			<div class="d-flex flex-column">
 				<h3>Habileté</h3>
-				<div>Base</div>
-                <div>Caractère</div>
-                <div>Matériel</div>
-                <div>Gain</div>
-                <div>Total</div>
+				<div>Base :
+					{{ game.habileteBase }}</div>
+				<div>Caractère :
+					{{ game.habileteCarac }}</div>
+				<div>Matériel :
+					{{ game.habileteItem }}</div>
+				<div>Gain :
+					{{ game.habileteGain }}</div>
+				<div>Total :
+					{{ game.habileteBase +  game.habileteCarac + game.habileteItem + game.habileteGain }}</div>
 			</div>
-            <div class="d-flex flex-column">
+			<div class="d-flex flex-column">
 				<h3>Adresse</h3>
-				<div>Base</div>
-                <div>Caractère</div>
-                <div>Matériel</div>
-                <div>Gain</div>
-                <div>Total</div>
+				<div>Base :
+					{{ game.adresseBase }}</div>
+				<div>Caractère :
+					{{ game.adresseCarac }}</div>
+				<div>Matériel :
+					{{ game.adresseItem }}</div>
+				<div>Gain :
+					{{ game.adresseGain }}</div>
+				<div>Total :
+					{{ game.adresseBase +  game.adresseCarac + game.adresseItem + game.adresseGain }}</div>
 			</div>
-            <div class="d-flex flex-column">
+			<div class="d-flex flex-column">
 				<h3>Stats secondaire</h3>
-				<div>Dégats :</div>
-                <div>Armure :</div>
-                <div>Critique :</div>
-                <div>PV max :</div>
+				<div class="d-flex align-items-center">Dégats :
+					<div class="btn btn-primary rounded" type="button" onclick="+()">+</div>
+					<div id="count">{{0 + game.damage }}</div>
+					<div class="btn btn-primary rounded" type="button" onclick="-()">-</div>
+				</div>
+				<div>Armure :
+					{{ game.armor }}</div>
+				<div>Critique :
+					{{ game.critique }}</div>
+				<div>PV max :
+					{{ game.pvmax }}</div>
 			</div>
 		</div>
-        <div class="d-flex justify-content-around mt-3">
+		<div class="d-flex justify-content-around mt-3">
 			<div class="d-flex flex-column">
 				<h3>Endurance</h3>
-				<div>Base</div>
-                <div>Caractère</div>
-                <div>Matériel</div>
-                <div>Gain</div>
-                <div>Total</div>
+				<div>Base :
+					{{ game.enduranceBase }}</div>
+				<div>Caractère :
+					{{ game.enduranceCarac }}</div>
+				<div>Matériel :
+					{{ game.enduranceItem }}</div>
+				<div>Gain :
+					{{ game.enduranceGain }}</div>
+				<div>Total :
+					{{ game.enduranceBase +  game.enduranceCarac + game.enduranceItem + game.enduranceGain }}</div>
 			</div>
-            <div class="d-flex flex-column">
+			<div class="d-flex flex-column">
 				<h3>Chance</h3>
-				<div>Base</div>
-                <div>Caractère</div>
-                <div>Matériel</div>
-                <div>Gain</div>
-                <div>Total</div>
+				<div>Base :
+					{{ game.chanceBase }}</div>
+				<div>Caractère :
+					{{ game.chanceCarac }}</div>
+				<div>Matériel :
+					{{ game.chanceItem }}</div>
+				<div>Gain :
+					{{ game.chanceGain }}</div>
+				<div>Total :
+					{{ game.chanceBase + game.chanceCarac +  game.chanceItem + game.chanceGain }}</div>
 			</div>
-            <div class="d-flex flex-column">
+			<div class="d-flex flex-column">
 				<h3>Matériel de base</h3>
-				<div>Dégats :</div>
-                <div>Armure :</div>
-                <div>Critique :</div>
-                <div>PV max :</div>
+				<select class="form-select" aria-label="item1">
+					<option selected>Choisis un objet de départ</option>
+					{% for item in items %}
+						<option value="{{ item.name }}">{{ item.name }}</option>
+					{% endfor %}
+				</select>
+				<select class="form-select" aria-label="item2">
+					<option selected>Choisis un objet de départ</option>
+					{% for item in items %}
+						<option value="{{ item.name }}">{{ item.name }}</option>
+					{% endfor %}
+				</select>
+				<select class="form-select" aria-label="item3">
+					<option selected>Choisis un objet de départ</option>
+					{% for item in items %}
+						<option value="{{ item.name }}">{{ item.name }}</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+		<div class="d-flex justify-content-around m-5">
+			<div class="d-flex">
+				<h3>Suivi des points de vie</h3>
+				<div>{{ game.pv }}</div>
+			</div>
+			<div class="d-flex">
+				<h3>Suivi des points de chance</h3>
+				<div>{{ game.chance }}</div>
+			</div>
+		</div>
+		<div class="d-flex justify-content-around m-5">
+			<div class="d-flex">
+				<h3>Gloire</h3>
+				<div>{{ game.gloire }}</div>
+			</div>
+			<div class="d-flex">
+				<h3>Richesse</h3>
+				<div>{{ game.richesse }}</div>
+			</div>
+		</div>
+		<div class="d-flex justify-content-around">
+			<div class="d-flex flex-column">
+				<h3 class="mb-3">Objets récupérés</h3>
+				<div class="d-flex flex-column mt-2">
+					<select class="form-select" aria-label="itemav">
+						<option selected>Choisis un objet de départ</option>
+						{% for item in items %}
+							<option value="{{ item.name }}">{{ item.name }}</option>
+						{% endfor %}
+					</select>
+					<button>Ajout de l'objet</button>
+				</div>
+			</div>
+			<div class="d-flex flex-column">
+				<h3>Notes d'aventure</h3>
+				<div>{{ game.richesse }}</div>
+                <button>Ajout de l'objet</button>
 			</div>
 		</div>
 	</form>

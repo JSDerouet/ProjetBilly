@@ -25,13 +25,13 @@ class GameType extends AbstractType
                 'label' => 'Choisis le cararctère de ton billy',
                 'choice_label' => 'name',
             ])
-            ->add('items',EntityType::class, [
-                'class' => Item::class,
-                'label' => 'Choisis 3 objets de départ',
-                'choice_label' => 'name',
-                'multiple'=>true,
-                'expanded'=>true,
-            ])
+            //->add('items',EntityType::class, [
+            //    'class' => Item::class,
+            //    'label' => 'Choisis 3 objets de départ',
+            //    'choice_label' => 'name',
+            //    'multiple'=>true,
+            //    'expanded'=>true,
+            //])
             ->add('pv', NumberType::class, [
                 'disabled'=>true
             ])

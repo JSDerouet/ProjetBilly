@@ -18,5 +18,12 @@ class DefaultController extends AbstractController
         return $this->render('base.html.twig', [
             'livres'=>$livres
         ]);
-    } 
+    }
+
+    #[Route('/aide', name: 'app_aide')]
+    public function aide(): Response
+    {
+        return $this->render('aide.html.twig', [
+        ]);
+    }
 }

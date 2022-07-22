@@ -9,7 +9,7 @@
                 <th>Numéro</th>
                 <th>Nom du billy</th>
                 <th>Caractère du billy</th>
-                <th>actions</th>
+                <th class="d-flex justify-content-center">actions</th>
             </tr>
         </thead>
         <tbody>
@@ -17,11 +17,10 @@
             <tr>
                 <td>{{ game.id }}</td>
                 <td>{{ game.name }}</td>
-                <td>{{ game.caractere }}</td>
-                <td>{{ game.chanceTotal }}</td>
-                <td>
-                    <a href="{{ path('app_game_show', {'id': game.id}) }}">show</a>
-                    <a href="{{ path('app_game_edit', {'id': game.id}) }}">edit</a>
+                <td>Débrouillard</td>
+                <td class="d-flex justify-content-around">
+                    <a class="text-danger" href="{{ path('app_game_delete', {'id': game.id}) }}">Supprimer la partie</a>
+                    <a class="text-primary" href="{{ path('app_game_edit', {'id': game.id}) }}">Reprendre la partie</a>
                 </td>
             </tr>
         {% else %}

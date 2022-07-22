@@ -3,7 +3,8 @@
 {% block title %}Nouvelle fiche perso
 {% endblock %}
 
-{% block javascripts %}{% endblock %}
+{% block javascripts %}
+{% endblock %}
 {% block body %}
 	<h1 class="d-flex justify-content-center">Fiche Personnage</h1>
 	<h2>Livre 1</h2>
@@ -21,33 +22,46 @@
 			<h3>Habileté</h3>
 			<div>Base :
 				{{ game.habileteBase }}</div>
-			<div>Caractère :
-				{{ game.habileteCarac }}</div>
-			<div>Matériel :
-				{{ game.habileteItem }}</div>
+			<div class="d-flex align-items-center w-50">Caractère:
+				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
+				{{ form_widget(form.habileteCarac, {'attr':{'class':'form-control border-dark'}})}}
+				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a>
+				</div>
+			<div class="d-flex align-items-center w-50">Matériel:
+				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
+				{{ form_widget(form.habileteItem, {'attr':{'class':'form-control border-dark'}})}}
+				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a></div>
 			<div class="d-flex align-items-center w-50">Gain:
 				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
 				{{ form_widget(form.habileteGain, {'attr':{'class':'form-control border-dark'}})}}
 				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a>
 			</div>
-			<div class="w-50">Total :
-				{{ form_widget(form.habileteTotal, {'attr':{'class':'form-control border-dark'}})}}</div>
+			<div class="d-flex align-items-center w-50">Total:
+				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
+				{{ form_widget(form.habileteTotal, {'attr':{'class':'form-control border-dark'}})}}
+				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a></div>
 		</div>
 		<div class="d-flex flex-column col-md-3">
 			<h3>Adresse</h3>
 			<div>Base :
 				{{ game.adresseBase }}</div>
-			<div>Caractère :
-				{{ game.adresseCarac }}</div>
-			<div>Matériel :
-				{{ game.adresseItem }}</div>
+			<div class="d-flex align-items-center w-50">Caractère:
+				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
+				{{ form_widget(form.adresseCarac, {'attr':{'class':'form-control border-dark'}})}}
+				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a></div>
+			<div class="d-flex align-items-center w-50">Matériel:
+				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
+				{{ form_widget(form.adresseItem, {'attr':{'class':'form-control border-dark'}})}}
+				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a></div>
 			<div class="d-flex align-items-center w-50">Gain:
 				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
 				{{ form_widget(form.adresseGain, {'attr':{'class':'form-control border-dark'}})}}
 				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a>
 			</div>
-			<div class="w-50">Total :
-				{{ form_widget(form.adresseTotal, {'attr':{'class':'form-control border-dark'}})}}</div>
+			<div class="d-flex align-items-center w-50">Total:
+				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
+				{{ form_widget(form.adresseTotal, {'attr':{'class':'form-control border-dark'}})}}
+				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a></div>
 		</div>
 		<div class="d-flex flex-column col-md-3">
 			<h3>Stats secondaire</h3>
@@ -78,33 +92,45 @@
 			<h3>Endurance</h3>
 			<div>Base :
 				{{ game.enduranceBase }}</div>
-			<div>Caractère :
-				{{ game.enduranceCarac }}</div>
-			<div>Matériel :
-				{{ game.enduranceItem }}</div>
+			<div class="d-flex align-items-center w-50">Caractère:
+				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
+				{{ form_widget(form.enduranceCarac, {'attr':{'class':'form-control border-dark'}})}}
+				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a></div>
+			<div class="d-flex align-items-center w-50">Matériel:
+				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
+				{{ form_widget(form.enduranceItem, {'attr':{'class':'form-control border-dark'}})}}
+				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a></div>
 			<div class="d-flex align-items-center w-50">Gain:
 				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
 				{{ form_widget(form.enduranceGain, {'attr':{'class':'form-control border-dark'}})}}
 				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a>
 			</div>
-			<div class="w-50">Total :
-				{{ form_widget(form.enduranceTotal, {'attr':{'class':'form-control border-dark'}})}}</div>
+			<div class="d-flex align-items-center w-50">Total:
+				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
+				{{ form_widget(form.enduranceTotal, {'attr':{'class':'form-control border-dark'}})}}
+				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a></div>
 		</div>
 		<div class="d-flex flex-column col-md-3">
 			<h3>Chance</h3>
 			<div>Base :
 				{{ game.chanceBase }}</div>
-			<div>Caractère :
-				{{ game.chanceCarac }}</div>
-			<div>Matériel :
-				{{ game.chanceItem }}</div>
+			<div class="d-flex align-items-center w-50">Caractère:
+				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
+				{{ form_widget(form.chanceCarac, {'attr':{'class':'form-control border-dark'}})}}
+				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a></div>
+			<div class="d-flex align-items-center w-50">Matériel:
+				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
+				{{ form_widget(form.chanceItem, {'attr':{'class':'form-control border-dark'}})}}
+				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a></div>
 			<div class="d-flex align-items-center w-50">Gain:
 				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
 				{{ form_widget(form.chanceGain, {'attr':{'class':'form-control border-dark'}})}}
 				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a>
 			</div>
-			<div class="w-50">Total :
-				{{ form_widget(form.chanceTotal, {'attr':{'class':'form-control border-dark'}})}}</div>
+			<div class="d-flex align-items-center w-50">Total:
+				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
+				{{ form_widget(form.chanceTotal, {'attr':{'class':'form-control border-dark'}})}}
+				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a></div>
 		</div>
 		<div class="d-flex flex-column col-md-3">
 			<h3>Matériel de base</h3>
@@ -157,7 +183,7 @@
 		</div>
 	</div>
 	<div class="d-flex justify-content-center p-5 m-5">
-		<button href={{ path('app_game_index') }}>Enregistrer la partie</button>
+		<button class="btn-primary" href={{ path('app_game_index') }}>Enregistrer la partie</button>
 	</div>
 	{{ form_end(form) }}
 </form>

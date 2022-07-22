@@ -57,10 +57,22 @@ class GameType extends AbstractType
             ->add('pvmax', NumberType::class, [
                 'disabled'=>true
             ])
+            ->add('habileteCarac', NumberType::class, [
+                'disabled'=>true
+            ])
+            ->add('habileteItem', NumberType::class, [
+                'disabled'=>true
+            ])
             ->add('habileteGain', NumberType::class, [
                 'disabled'=>true
             ])
             ->add('habileteTotal', NumberType::class, [
+                'disabled'=>true
+            ])
+            ->add('adresseCarac', NumberType::class, [
+                'disabled'=>true
+            ])
+            ->add('adresseItem', NumberType::class, [
                 'disabled'=>true
             ])
             ->add('adresseGain', NumberType::class, [
@@ -69,10 +81,22 @@ class GameType extends AbstractType
             ->add('adresseTotal', NumberType::class, [
                 'disabled'=>true
             ])
+            ->add('enduranceCarac', NumberType::class, [
+                'disabled'=>true
+            ])
+            ->add('enduranceItem', NumberType::class, [
+                'disabled'=>true
+            ])
             ->add('enduranceGain', NumberType::class, [
                 'disabled'=>true
             ])
             ->add('enduranceTotal', NumberType::class, [
+                'disabled'=>true
+            ])
+            ->add('chanceCarac', NumberType::class, [
+                'disabled'=>true
+            ])
+            ->add('chanceItem', NumberType::class, [
                 'disabled'=>true
             ])
             ->add('chanceGain', NumberType::class, [

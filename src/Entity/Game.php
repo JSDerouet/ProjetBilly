@@ -55,7 +55,7 @@ class Game
     private $habileteGain = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $habileteTotal;
+    private $habileteTotal = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private $adresseBase = 1;
@@ -70,7 +70,7 @@ class Game
     private $adresseGain = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $adresseTotal;
+    private $adresseTotal = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private $enduranceBase = 2;
@@ -85,7 +85,7 @@ class Game
     private $enduranceGain = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $enduranceTotal;
+    private $enduranceTotal = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private $chanceBase = 3;
@@ -100,7 +100,7 @@ class Game
     private $chanceGain = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $chanceTotal;
+    private $chanceTotal = 0;
 
     #[ORM\ManyToOne(targetEntity: Caractere::class, inversedBy: 'games')]
     private $caracteres;

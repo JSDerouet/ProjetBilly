@@ -32,6 +32,7 @@ class GameController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $gameRepository->add($game, true);
+            dd($game);
 
             return $this->redirectToRoute('app_game_index', [], Response::HTTP_SEE_OTHER);
         }

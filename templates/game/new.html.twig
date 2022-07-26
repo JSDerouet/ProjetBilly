@@ -3,9 +3,11 @@
 {% block title %}Nouvelle fiche perso
 {% endblock %}
 
-{% block javascripts %}{% endblock %}
+{% block javascripts %}
+{{ encore_entry_script_tags('total') }}
+{% endblock %}
 {% block body %}
-	<h1 class="d-flex justify-content-center">Fiche Personnage</h1>
+	<h1 class="d-flex justify-content-center">Fiche du billy</h1>
 	<h2>Livre 1</h2>
 	<form action="" method="post">
 		{{ form_start(form) }}
@@ -20,7 +22,7 @@
 		<div class="d-flex flex-column col-md-3">
 			<h3>Habileté</h3>
 			<div>Base :
-				{{ game.habileteBase }}</div>
+				<span id="game_habileteBase">{{ game.habileteBase}}</span></div>
 			<div class="d-flex align-items-center w-50">Caractère:
 				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
 				{{ form_widget(form.habileteCarac, {'attr':{'class':'form-control border-dark'}})}}
@@ -36,11 +38,8 @@
 				{{ form_widget(form.habileteGain, {'attr':{'class':'form-control border-dark'}})}}
 				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a>
 			</div>
-			<div class="d-flex align-items-center w-50">Total:
-				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
-				{{ form_widget(form.habileteTotal, {'attr':{'class':'form-control border-dark'}})}}
-				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a>
-			</div>
+			<div class="d-flex align-items-center w-50">Total:</div>
+			<div id='game_habileteTotal'> </div>
 		</div>
 		<div class="d-flex flex-column col-md-3">
 			<h3>Adresse</h3>
@@ -62,9 +61,6 @@
 				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a>
 			</div>
 			<div class="d-flex align-items-center w-50">Total:
-				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
-				{{ form_widget(form.adresseTotal, {'attr':{'class':'form-control border-dark'}})}}
-				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a>
 			</div>
 		</div>
 		<div class="d-flex flex-column col-md-3">
@@ -112,9 +108,6 @@
 				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a>
 			</div>
 			<div class="d-flex align-items-center w-50">Total:
-				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
-				{{ form_widget(form.enduranceTotal, {'attr':{'class':'form-control border-dark'}})}}
-				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a>
 			</div>
 		</div>
 		<div class="d-flex flex-column col-md-3">
@@ -137,9 +130,6 @@
 				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a>
 			</div>
 			<div class="d-flex align-items-center w-50">Total:
-				<a class="btn btn-primary rounded p-1 ms-2" onclick="this.nextElementSibling.value=parseInt(this.nextElementSibling.value)-1">-</a>
-				{{ form_widget(form.chanceTotal, {'attr':{'class':'form-control border-dark'}})}}
-				<a class="btn btn-primary rounded p-1" onclick="this.previousElementSibling.value=parseInt(this.previousElementSibling.value)+1">+</a>
 			</div>
 		</div>
 		<div class="d-flex flex-column col-md-3">

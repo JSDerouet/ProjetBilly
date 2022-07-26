@@ -18,92 +18,93 @@ class Game
     #[ORM\Column(type: 'string', length: 255)]
     private $name='Billy';
 
-    #[ORM\Column(type: 'integer', nullable: true)]
-    private $pv = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $chance = 0;
+    private int $pv = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $gloire = 0;
+    private int $chance = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $richesse = 0;
+    private int $gloire = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $damage = 0;
+    private int $richesse = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $armor = 0;
+    private int $damage = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $critique = 0;
+    private int $armor = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $pvmax = 0;
+    private int $critique = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $habileteBase = 2;
+    private int $pvmax = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $habileteCarac = 0;
+    private int $habileteBase = 2;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $habileteItem = 0;
+    private int $habileteCarac = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $habileteGain = 0;
+    private int $habileteItem = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $habileteTotal = 0;
+    private int $habileteGain = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $adresseBase = 1;
+    private int $habileteTotal = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $adresseCarac = 0;
+    private int $adresseBase = 1;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $adresseItem = 0;
+    private int $adresseCarac = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $adresseGain = 0;
+    private int $adresseItem = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $adresseTotal = 0;
+    private int $adresseGain = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $enduranceBase = 2;
+    private int $adresseTotal = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $enduranceCarac = 0;
+    private int $enduranceBase = 2;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $enduranceItem = 0;
+    private int $enduranceCarac = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $enduranceGain = 0;
+    private int $enduranceItem = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $enduranceTotal = 0;
+    private int $enduranceGain = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $chanceBase = 3;
+    private int $enduranceTotal = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $chanceCarac = 0;
+    private int $chanceBase = 3;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $chanceItem = 0;
+    private int $chanceCarac = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $chanceGain = 0;
+    private int $chanceItem = 0;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $chanceTotal = 0;
+    private int $chanceGain = 0;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private int $chanceTotal = 0;
 
     #[ORM\ManyToOne(targetEntity: Caractere::class, inversedBy: 'games')]
-    private $caracteres;
+    private Caractere $caracteres;
 
     #[ORM\ManyToOne(targetEntity: Note::class, inversedBy: 'games')]
     private $notes;

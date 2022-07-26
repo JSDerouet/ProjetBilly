@@ -7,6 +7,7 @@ use App\Entity\Game;
 use App\Entity\Item;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -33,77 +34,44 @@ class GameType extends AbstractType
             //    'expanded'=>true,
             //])
             ->add('pv', NumberType::class, [
-                'disabled'=>true
             ])
             ->add('chance', NumberType::class, [
-                'disabled'=>true
             ])
             ->add('gloire', NumberType::class, [
-                'disabled'=>true
             ])
             ->add('richesse', NumberType::class, [
-                'disabled'=>true
             ])
             ->add('damage', NumberType::class, [
-                'disabled'=>true
-            ]
-            )
+            ])
             ->add('armor', NumberType::class, [
-                'disabled'=>true
             ])
             ->add('critique', NumberType::class, [
-                'disabled'=>true
             ])
             ->add('pvmax', NumberType::class, [
-                'disabled'=>true
             ])
             ->add('habileteCarac', NumberType::class, [
-                'disabled'=>true
             ])
             ->add('habileteItem', NumberType::class, [
-                'disabled'=>true
             ])
             ->add('habileteGain', NumberType::class, [
-                'disabled'=>true
-            ])
-            ->add('habileteTotal', NumberType::class, [
-                'disabled'=>true
             ])
             ->add('adresseCarac', NumberType::class, [
-                'disabled'=>true
             ])
             ->add('adresseItem', NumberType::class, [
-                'disabled'=>true
             ])
             ->add('adresseGain', NumberType::class, [
-                'disabled'=>true
-            ])
-            ->add('adresseTotal', NumberType::class, [
-                'disabled'=>true
             ])
             ->add('enduranceCarac', NumberType::class, [
-                'disabled'=>true
             ])
             ->add('enduranceItem', NumberType::class, [
-                'disabled'=>true
             ])
             ->add('enduranceGain', NumberType::class, [
-                'disabled'=>true
-            ])
-            ->add('enduranceTotal', NumberType::class, [
-                'disabled'=>true
             ])
             ->add('chanceCarac', NumberType::class, [
-                'disabled'=>true
             ])
             ->add('chanceItem', NumberType::class, [
-                'disabled'=>true
             ])
             ->add('chanceGain', NumberType::class, [
-                'disabled'=>true
-            ])
-            ->add('chanceTotal', NumberType::class, [
-                'disabled'=>true
             ])
         ;
     }
